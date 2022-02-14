@@ -10,8 +10,11 @@ body {
 <script src="/socket.io/socket.io.js"></script>
 <script>
   var socket = io();
-  socket.on('fromclient', (data) => {
-    console.log(data);
+  socket.on('toclient', (data) => {
+    console.log(data.r/4);
+    console.log(data.g/4);
+    console.log(data.b/4);
+    document.body.style.backgroundColor='rgb(' + data.r + ',' + data.b + ',' + data.g + ')';
   });
   // setInterval(function() {
 // socket.emit('values', { A0: 'A0 value', A1: 'A1 value',A2: 'A2 value', D1: 'D1 value',D2: 'D2 value', D3: 'D3 value' }); // This will emit the event to all connected sockets

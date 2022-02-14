@@ -35,7 +35,7 @@ io.on('connection', (socket) => {
   });
 
 parser.on('data', data => {
-  //  // console.log(data)
+   console.log(data)
     var dat=data.split(',')
 socket.emit("toclient", { r: dat[0], g: dat[1],b: dat[2] });
 
