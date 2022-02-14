@@ -1,3 +1,7 @@
+const SerialPort = require('serialport')
+const Readline = require('@serialport/parser-readline')
+const port = new SerialPort('COM3') //change to your port
+const parser = port.pipe(new Readline({ delimiter: '\r\n' }))
 const express = require('express');
 const app = express();
 const http = require('http');
@@ -25,9 +29,19 @@ app.get('/catdogcat', (req, res) => {
 
 io.on('connection', (socket) => {
 	console.log("connected")
-  socket.on('values', (msg) => {
-    console.log('message: ' + msg.A0+','+ msg.A1+','+ msg.A2+','+ msg.D1+','+ msg.D2+','+ msg.D3);
+
+  socket.on('fromclient', (data) => {
+    console.log(data);
   });
+
+parser.on('data', data => {
+  //  // console.log(data)
+    var dat=data.split(',')
+socket.emit("toclient", { r: dat[0], g: dat[1],b: dat[2] });
+
+  });
+
+
 });
 
 server.listen(3000, () => {

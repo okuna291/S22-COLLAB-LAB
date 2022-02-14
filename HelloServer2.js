@@ -2,8 +2,7 @@ const express = require('express');
 const app = express();
 const http = require('http');
 const server = http.createServer(app);
-const { Server } = require("socket.io");
-const io = new Server(server);
+
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/HelloServer2.html');
@@ -21,12 +20,7 @@ app.get('/catdogcat', (req, res) => {
   res.send('<img src="https://nypost.com/wp-content/uploads/sites/2/2020/03/031120-cute-animals-anti-corona-01.jpg?quality=80&strip=all">');
 });
 
-io.on('connection', (socket) => {
-	console.log("connected")
-  socket.on('values', (msg) => {
-    console.log('message: ' + msg.A0+','+ msg.A1+','+ msg.A2+','+ msg.D1+','+ msg.D2+','+ msg.D3);
-  });
-});
+
 
 server.listen(3000, () => {
   console.log('listening on *:3000');

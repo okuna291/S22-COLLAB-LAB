@@ -7,6 +7,18 @@ body {
 }
 </style>
 </head>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+  socket.on('fromclient', (data) => {
+    console.log(data);
+  });
+  // setInterval(function() {
+// socket.emit('values', { A0: 'A0 value', A1: 'A1 value',A2: 'A2 value', D1: 'D1 value',D2: 'D2 value', D3: 'D3 value' }); // This will emit the event to all connected sockets
+
+
+// console.log({ A0: 'A0 value', A1: 'A1 value',A2: 'A2 value', D1: 'D1 value',D2: 'D2 value', D3: 'D3 value' })}, 1000);
+</script>
 <body>
 
 <h1>My First Heading</h1>
