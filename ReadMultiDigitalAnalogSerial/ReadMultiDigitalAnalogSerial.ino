@@ -42,5 +42,5 @@ Serial.print(",");
 Serial.print(DsensorValue3);
 Serial.print(",");
 Serial.println(DsensorValue4);
-delay(500);
+delay(250);
 }
