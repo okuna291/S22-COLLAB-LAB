@@ -25,11 +25,11 @@ int AsensorValue1 = analogRead(A1);
 // read the input on analog pin 2:
 int AsensorValue2 = analogRead(A2);
 // read the input on digital pin 1:
-int DsensorValue1 = digitalRead(1);
-// read the input on digital pin 2:
 int DsensorValue2 = digitalRead(2);
-// read the input on digital pin 3:
+// read the input on digital pin 2:
 int DsensorValue3 = digitalRead(3);
+// read the input on digital pin 3:
+int DsensorValue4 = digitalRead(4);
 
 Serial.print(AsensorValue0);
 Serial.print(",");
@@ -37,10 +37,10 @@ Serial.print(AsensorValue1);
 Serial.print(",");
 Serial.print(AsensorValue2);
 Serial.print(",");
-Serial.print(DsensorValue1);
-Serial.print(",");
 Serial.print(DsensorValue2);
 Serial.print(",");
-Serial.println(DsensorValue3);
+Serial.print(DsensorValue3);
+Serial.print(",");
+Serial.println(DsensorValue4);
 delay(500);
 }
