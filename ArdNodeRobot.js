@@ -21,23 +21,23 @@ var robot = require("robotjs");
 
 
 
-///serial read to emulator
+//serial read to emulator
 
-  // parser.on('data', data => {
-  // 	// console.log(data)
-  //   var dat=data.split(',')
-  //   // console.log("A0= " + dat[0] + "," + " A1= " + dat[1]+ "," + " A2= " + dat[2] + "," + " D1= " + dat[3] + "," + " D2= " + dat[4] + "," + " D3= " + dat[5] )
-  //  if (dat[3]=="1"){
-  //   	console.log("a")
-  //   	robot.keyTap("a");
-  //   }
-  //   if (dat[4]=="1"){
-  //   	console.log("x")
-  //   	robot.keyTap("x");
-  //   }
-  //   if (dat[5]=="1"){
-  //   	console.log("d")
-  //   	robot.keyTap("d");
-  //   }
-  // });
+  parser.on('data', data => {
+  	// console.log(data)
+    var dat=data.split(',')
+    // console.log("A0= " + dat[0] + "," + " A1= " + dat[1]+ "," + " A2= " + dat[2] + "," + " D1= " + dat[3] + "," + " D2= " + dat[4] + "," + " D3= " + dat[5] )
+   if (dat[3]=="1"){
+    	console.log("a")
+    	robot.keyTap("a");
+    }
+    if (dat[4]=="1"){
+    	console.log("x")
+    	robot.keyTap("x");
+    }
+    if (dat[5]=="1"){
+    	console.log("d")
+    	robot.keyTap("d");
+    }
+  });
 
