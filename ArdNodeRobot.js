@@ -1,8 +1,7 @@
-const { SerialPort } = require('serialport')
-const { ReadlineParser } = require('@serialport/parser-readline')
-const port = new SerialPort({ path: '/dev/cu.usbmodem14301', baudRate: 9600 })//change your port
-const parser = port.pipe(new ReadlineParser({ delimiter: '\r\n' }))
-
+const SerialPort = require('serialport')
+const Readline = require('@serialport/parser-readline')
+const port = new SerialPort('/dev/cu.usbmodem14301') //change to your port
+const parser = port.pipe(new Readline({ delimiter: '\r\n' }))
 var robot = require("robotjs");
 
 // Move the mouse across the screen as a sine wave.
