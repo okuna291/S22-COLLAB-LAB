@@ -9,23 +9,48 @@ body {
 </head>
 <script src="/socket.io/socket.io.js"></script>
 <script>
+var r=0
+var g=0
+var b=0
+var x=0
+var y=0
+var z=0
   var socket = io();
   socket.on('toclient', (data) => {
+    r=data.r
+    g=data.g
+    b=data.b
+    document.getElementById("r").innerHTML = r;
+    document.getElementById("g").innerHTML = g;
+    document.getElementById("b").innerHTML = b;
+    document.getElementById("x").innerHTML = x;
+    document.getElementById("y").innerHTML = y;
+    document.getElementById("z").innerHTML = z;
+
     console.log(data.r/4);
-    console.log(data.g/4);
-    console.log(data.b/4);
-    document.body.style.backgroundColor='rgb(' + data.r + ',' + data.b + ',' + data.g + ')';
+    // console.log(data.g/4);
+    // console.log(data.b/4);
+    // document.body.style.backgroundColor='rgb(' + data.r + ',' + data.b + ',' + data.g + ')';
   });
   // setInterval(function() {
 // socket.emit('values', { A0: 'A0 value', A1: 'A1 value',A2: 'A2 value', D1: 'D1 value',D2: 'D2 value', D3: 'D3 value' }); // This will emit the event to all connected sockets
 
 
 // console.log({ A0: 'A0 value', A1: 'A1 value',A2: 'A2 value', D1: 'D1 value',D2: 'D2 value', D3: 'D3 value' })}, 1000);
+
+
 </script>
 <body>
 
 <h1>My First Heading</h1>
 <p>My first paragraph.</p>
-
+<p id="r"></p>
+<p id="g"></p>
+<p id="b"></p>
+<p id="x"></p>
+<p id="y"></p>
+<p id="z"></p>
+<script>
+</script>
 </body>
 </html>

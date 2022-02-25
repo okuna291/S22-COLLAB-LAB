@@ -1,7 +1,11 @@
-const SerialPort = require('serialport')
-const Readline = require('@serialport/parser-readline')
-const port = new SerialPort('COM3') //change to your port
-const parser = port.pipe(new Readline({ delimiter: '\r\n' }))
+const { SerialPort } = require('serialport')
+const { ReadlineParser } = require('@serialport/parser-readline')
+const port = new SerialPort({ path: 'COM5', baudRate: 9600 })
+
+const parser = port.pipe(new ReadlineParser({ delimiter: '\r\n' }))
+parser.on('data', console.log)
+
+
 const express = require('express');
 const app = express();
 const http = require('http');
@@ -37,7 +41,7 @@ io.on('connection', (socket) => {
 parser.on('data', data => {
    console.log(data)
     var dat=data.split(',')
-socket.emit("toclient", { r: dat[0], g: dat[1],b: dat[2] });
+socket.emit("toclient", { r: dat[0], g: dat[1],b: dat[2], x: dat[3], y: dat[4], z: dat[5] });
 
   });
 
