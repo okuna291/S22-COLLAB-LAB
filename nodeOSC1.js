@@ -1,23 +1,3 @@
-// const SerialPort = require('serialport')
-// const Readline = require('@serialport/parser-readline')
-// const port = new SerialPort('/dev/cu.usbmodem14301')
-
-// const parser = port.pipe(new Readline({ delimiter: '\r\n' }))
-
-
-//  parser.on('data', data => {
-//     // console.log(data)
-//   });
-
-// function readSerial() {
-// console.log(parser)}
-// import { Client } from 'node-osc';
-
-// const client = new Client('127.0.0.1', 3333);
-// client.send('/oscAddress', 200, () => {
-//   client.close();
-// });
-////or  the below
 
 //https://npm.io/package/osc-emitter
 var OscEmitter = require('osc-emitter')
@@ -50,10 +30,3 @@ receiver.on('message', function() {
   var address = arguments[0];
   var args = Array.prototype.slice.call(arguments, 1);
 });
-
-// const { SerialPort } = require('serialport')
-// const { ReadlineParser } = require('@serialport/parser-readline')
-// const port = new SerialPort({ path: '/dev/cu.usbmodem14301', baudRate: 9600 })
-
-// const parser = port.pipe(new ReadlineParser({ delimiter: '\r\n' }))
-// parser.on('data', console.log)

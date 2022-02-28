@@ -1,7 +1,6 @@
 const { SerialPort } = require('serialport')
 const { ReadlineParser } = require('@serialport/parser-readline')
-const port = new SerialPort({ path: 'COM5', baudRate: 9600 })
-
+const port = new SerialPort({ path: '/dev/cu.usbmodem14401', baudRate: 9600 })
 const parser = port.pipe(new ReadlineParser({ delimiter: '\r\n' }))
 parser.on('data', console.log)
 
@@ -42,9 +41,7 @@ parser.on('data', data => {
    console.log(data)
     var dat=data.split(',')
 socket.emit("toclient", { r: dat[0], g: dat[1],b: dat[2], x: dat[3], y: dat[4], z: dat[5] });
-
   });
-
 
 });
 
