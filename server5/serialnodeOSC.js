@@ -1,17 +1,19 @@
-// const { SerialPort } = require('serialport')
-// const { ReadlineParser } = require('@serialport/parser-readline')
-// const port = new SerialPort({ path: '/dev/cu.usbmodem14301', baudRate: 9600 })
-// const parser = port.pipe(new ReadlineParser({ delimiter: '\r\n' }))
+const { SerialPort } = require('serialport')
+const { ReadlineParser } = require('@serialport/parser-readline')
+const port = new SerialPort({ path: 'COM5', baudRate: 9600 })
+const parser = port.pipe(new ReadlineParser({ delimiter: '\r\n' }))
 
 
-const SerialPort = require('serialport')
-const Readline = require('@serialport/parser-readline')
-const port = new SerialPort('/dev/cu.usbmodem14301')
-const parser = port.pipe(new Readline({ delimiter: '\r\n' }))
+// const SerialPort = require('serialport')
+// const Readline = require('@serialport/parser-readline')
+// // const port = new SerialPort('/dev/cu.usbmodem14301')
+// const port = new SerialPort('COM5')
+
+// const parser = port.pipe(new Readline({ delimiter: '\r\n' }))
 
 var emitterIP1="localhost"
 var emitterPort1=7400
-var emitterIP2="192.168.0.238"
+var emitterIP2="192.168.0.186"
 var emitterPort2=7000
 
 
